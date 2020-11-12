@@ -1,4 +1,7 @@
 {
   "extends": ["react-app", "plugin:prettier/recommended"],
-  "plugins": ["prettier"]
+  "plugins": ["prettier"],
+  "rules": {
+    "import/no-anonymous-default-export": "off"
+  }
 }
