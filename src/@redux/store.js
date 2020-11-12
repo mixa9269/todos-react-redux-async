@@ -1,13 +1,13 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware, { END } from 'redux-saga';
-import { createRootReducer } from './index';
+import reducer from './reducers';
 
 export default (history, initialState) => {
   const sagaMiddleware = createSagaMiddleware();
 
   const store = configureStore({
     middleware: [...getDefaultMiddleware(), sagaMiddleware],
-    reducer: createRootReducer(history),
+    reducer,
     preloadedState: initialState,
     devTools: true,
   });
