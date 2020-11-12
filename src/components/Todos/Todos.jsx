@@ -1,7 +1,7 @@
-import s from './Todo.module.scss';
+import s from './Todos.module.scss';
 import NewTodo from './NewTodo';
 
-const Todo = () => {
+const Todos = () => {
   return (
     <section className={s.root}>
       <NewTodo />
@@ -9,4 +9,4 @@ const Todo = () => {
   );
 };
 
-export default Todo;
+export default Todos;
