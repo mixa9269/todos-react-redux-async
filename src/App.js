@@ -1,4 +1,4 @@
-import Todos from 'components/Todos';
+import TodosContainer from 'containers/TodosContainer';
 import { Provider } from 'react-redux';
 
 import configureStore from '@redux/store';
@@ -10,7 +10,7 @@ store.runSaga(rootSaga);
 function App() {
   return (
     <Provider store={store}>
-      <Todos />
+      <TodosContainer />
     </Provider>
   );
 }
