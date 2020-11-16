@@ -16,3 +16,8 @@ export const collectionSelector = createSelector(
   rootSelector,
   ({ collection }) => denormalize(collection)
 );
+
+export const newTodoSelector = createSelector(
+  rootSelector,
+  ({ newTodo }) => newTodo
+);

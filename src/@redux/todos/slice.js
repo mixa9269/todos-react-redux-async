@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 import { createSlice } from '@reduxjs/toolkit';
 import actionTypes from 'utils/actionTypes';
 import { PENDING, SUCCESS, FAILURE } from 'consts/index';
@@ -10,6 +8,7 @@ const slice = createSlice({
   initialState: {
     collection: {},
     status: '',
+    newTodo: '',
   },
   reducers: {
     fetchTodos: (state) => {
@@ -19,8 +18,16 @@ const slice = createSlice({
       state.status = SUCCESS;
       state.collection = normalize(payload.data);
     },
-    fetchTodosFailure: (state, { payload }) => {
+    fetchTodosFailure: (state) => {
       state.status = FAILURE;
+    },
+    changeNewTodo: (state, { payload }) => {
+      state.newTodo = payload;
+    },
+    pushTodo: (state) => state,
+    pushTodoSuccess: (state, { payload: { data } }) => {
+      state.newTodo = '';
+      state.collection[data.id] = data;
     },
   },
 });

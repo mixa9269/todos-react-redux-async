@@ -14,7 +14,7 @@ const Item = ({ title, completed }) => {
 
 Item.propTypes = {
   title: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired,
+  completed: PropTypes.bool,
 };
 
 export default Item;
