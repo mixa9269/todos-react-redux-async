@@ -14,7 +14,7 @@ export const isFetchedSelector = createSelector(
 
 export const collectionSelector = createSelector(
   rootSelector,
-  ({ collection }) => denormalize(collection)
+  ({ collection }) => denormalize(collection).sort((a, b) => b.id - a.id)
 );
 
 export const newTodoSelector = createSelector(
