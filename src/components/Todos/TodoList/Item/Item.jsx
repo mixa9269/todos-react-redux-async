@@ -8,6 +8,7 @@ const Item = ({ title, completed }) => {
     <li className={s.root}>
       <input className={s.checkbox} type="checkbox" />
       <label className={cn(s.label, { [s.checked]: completed })}>{title}</label>
+      <button className={s.btnDestroy} />
     </li>
   );
 };
