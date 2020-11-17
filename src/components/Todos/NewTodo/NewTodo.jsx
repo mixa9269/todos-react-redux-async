@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import s from './NewTodo.module.scss';
@@ -22,4 +23,4 @@ NewTodo.propTypes = {
   onAddTodo: PropTypes.func.isRequired,
 };
 
-export default NewTodo;
+export default React.memo(NewTodo);

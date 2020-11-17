@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import FilterBtn from './FilterBtn';
 import { ALL, ACTIVE, COMPLETED } from 'consts';
@@ -31,4 +32,4 @@ Footer.propTypes = {
   onChangeFilter: PropTypes.func.isRequired,
 };
 
-export default Footer;
+export default React.memo(Footer);

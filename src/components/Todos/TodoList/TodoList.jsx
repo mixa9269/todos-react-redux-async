@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Item from './Item';
@@ -20,4 +21,4 @@ TodoList.propTypes = {
   onCheck: PropTypes.func.isRequired,
 };
 
-export default TodoList;
+export default React.memo(TodoList);
