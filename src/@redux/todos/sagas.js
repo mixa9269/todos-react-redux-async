@@ -20,9 +20,18 @@ export function* postTodoSaga(action) {
   });
 }
 
+export function* deleteTodoSaga(action) {
+  yield api({
+    action,
+    method: 'delete',
+    url: `todos/${action.payload}`,
+  });
+}
+
 export default function* () {
   yield all([
     takeLatest(actions.fetchTodos, fetchTodosSaga),
     takeEvery(actions.pushTodo, postTodoSaga),
+    takeEvery(actions.deleteTodo, deleteTodoSaga),
   ]);
 }

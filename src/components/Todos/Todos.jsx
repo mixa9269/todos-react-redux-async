@@ -5,7 +5,13 @@ import TodoList from './TodoList';
 
 import s from './Todos.module.scss';
 
-const Todos = ({ collection, newTodo, onAddTodo, onNewTodoChange }) => {
+const Todos = ({
+  collection,
+  newTodo,
+  onAddTodo,
+  onNewTodoChange,
+  onRemove,
+}) => {
   return (
     <section className={s.root}>
       <NewTodo
@@ -13,7 +19,7 @@ const Todos = ({ collection, newTodo, onAddTodo, onNewTodoChange }) => {
         onInputChange={onNewTodoChange}
         onAddTodo={onAddTodo}
       />
-      <TodoList collection={collection} />
+      <TodoList collection={collection} onRemove={onRemove} />
     </section>
   );
 };
@@ -23,6 +29,7 @@ Todos.propTypes = {
   collection: PropTypes.array,
   onNewTodoChange: PropTypes.func.isRequired,
   onAddTodo: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 
 export default Todos;

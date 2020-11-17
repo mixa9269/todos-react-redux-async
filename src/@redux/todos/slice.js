@@ -29,6 +29,10 @@ const slice = createSlice({
       state.newTodo = '';
       state.collection[data.id] = data;
     },
+    deleteTodo: (state) => state,
+    deleteTodoSuccess: (state, { payload }) => {
+      delete state.collection[payload.inResponseTo];
+    },
   },
 });
 
