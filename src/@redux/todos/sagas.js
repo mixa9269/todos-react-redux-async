@@ -14,7 +14,7 @@ export function* fetchTodosSaga(action) {
 export function* postTodoSaga(action) {
   yield api({
     action,
-    method: 'POST',
+    method: 'post',
     url: 'todos',
     data: { title: action.payload },
   });
