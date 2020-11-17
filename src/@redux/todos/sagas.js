@@ -28,10 +28,22 @@ export function* deleteTodoSaga(action) {
   });
 }
 
+export function* checkTodoSaga(action) {
+  yield api({
+    action,
+    method: 'patch',
+    url: `todos/${action.payload.id}`,
+    data: {
+      completed: action.payload.value,
+    },
+  });
+}
+
 export default function* () {
   yield all([
     takeLatest(actions.fetchTodos, fetchTodosSaga),
     takeEvery(actions.pushTodo, postTodoSaga),
     takeEvery(actions.deleteTodo, deleteTodoSaga),
+    takeEvery(actions.checkTodo, checkTodoSaga),
   ]);
 }

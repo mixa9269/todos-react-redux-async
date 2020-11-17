@@ -4,11 +4,11 @@ import Item from './Item';
 
 import s from './TodoList.module.scss';
 
-const TodoList = ({ collection, onRemove }) => {
+const TodoList = ({ collection, onRemove, onCheck }) => {
   return (
     <ul className={s.root}>
       {collection.map((item) => (
-        <Item key={item.id} onRemove={onRemove} {...item} />
+        <Item key={item.id} onRemove={onRemove} onCheck={onCheck} {...item} />
       ))}
     </ul>
   );
@@ -17,6 +17,7 @@ const TodoList = ({ collection, onRemove }) => {
 TodoList.propTypes = {
   collection: PropTypes.array,
   onRemove: PropTypes.func.isRequired,
+  onCheck: PropTypes.func.isRequired,
 };
 
 export default TodoList;

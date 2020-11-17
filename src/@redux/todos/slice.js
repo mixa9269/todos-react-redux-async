@@ -33,6 +33,9 @@ const slice = createSlice({
       delete state.collection[payload];
     },
     deleteTodoSuccess: (state) => state,
+    checkTodo: (state, { payload: { id, value } }) => {
+      state.collection[id].completed = value;
+    },
   },
 });
 

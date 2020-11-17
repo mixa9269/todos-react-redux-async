@@ -13,6 +13,7 @@ const Todos = ({
   onAddTodo,
   onNewTodoChange,
   onRemove,
+  onCheck,
 }) => {
   return (
     <section className={s.root}>
@@ -21,7 +22,7 @@ const Todos = ({
         onInputChange={onNewTodoChange}
         onAddTodo={onAddTodo}
       />
-      <TodoList collection={collection} onRemove={onRemove} />
+      <TodoList collection={collection} onRemove={onRemove} onCheck={onCheck} />
       <Footer activeCount={activeCount} />
     </section>
   );
@@ -34,6 +35,7 @@ Todos.propTypes = {
   onNewTodoChange: PropTypes.func.isRequired,
   onAddTodo: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
+  onCheck: PropTypes.func.isRequired,
 };
 
 export default Todos;

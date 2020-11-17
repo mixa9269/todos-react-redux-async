@@ -14,6 +14,8 @@ const UsersContainer = () => {
   const pushTodo = useAction(actions.pushTodo);
   const changeNewTodo = useAction(actions.changeNewTodo);
   const deleteTodo = useAction(actions.deleteTodo);
+  const checkTodo = useAction(actions.checkTodo);
+
   const isFetched = useSelector(isFetchedSelector);
   const collection = useSelector(collectionSelector);
   const newTodo = useSelector(newTodoSelector);
@@ -37,6 +39,7 @@ const UsersContainer = () => {
       onAddTodo={pushTodo}
       onNewTodoChange={changeNewTodo}
       onRemove={deleteTodo}
+      onCheck={checkTodo}
     />
   );
 };
