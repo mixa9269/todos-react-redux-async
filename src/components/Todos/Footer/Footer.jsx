@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import FilterBtn from './FilterBtn';
 
 import s from './Footer.module.scss';
 
@@ -8,6 +9,11 @@ const Footer = ({ activeCount }) => {
       <span>
         {activeCount} item{activeCount === 1 ? '' : 's'} left
       </span>
+      <div>
+        <FilterBtn active>All</FilterBtn>
+        <FilterBtn>Active</FilterBtn>
+        <FilterBtn>Completed</FilterBtn>
+      </div>
     </footer>
   );
 };
