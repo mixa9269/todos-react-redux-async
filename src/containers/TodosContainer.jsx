@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 import { actions } from '@redux/todos/slice';
 import {
   isFetchedSelector,
-  collectionSelector,
+  filtredListSelector,
   newTodoSelector,
   activeCountSelector,
+  filterSelector,
 } from '@redux/todos/selectors';
 import Todos from 'components/Todos';
 
@@ -15,11 +16,13 @@ const UsersContainer = () => {
   const changeNewTodo = useAction(actions.changeNewTodo);
   const deleteTodo = useAction(actions.deleteTodo);
   const checkTodo = useAction(actions.checkTodo);
+  const setFilter = useAction(actions.setFilter);
 
   const isFetched = useSelector(isFetchedSelector);
-  const collection = useSelector(collectionSelector);
+  const collection = useSelector(filtredListSelector);
   const newTodo = useSelector(newTodoSelector);
   const activeCount = useSelector(activeCountSelector);
+  const filter = useSelector(filterSelector);
 
   useComponentDidMount(() => {
     if (!isFetched) {
@@ -36,10 +39,12 @@ const UsersContainer = () => {
       collection={collection}
       newTodo={newTodo}
       activeCount={activeCount}
+      filter={filter}
       onAddTodo={pushTodo}
       onNewTodoChange={changeNewTodo}
       onRemove={deleteTodo}
       onCheck={checkTodo}
+      onChangeFilter={setFilter}
     />
   );
 };

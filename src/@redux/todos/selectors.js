@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { denormalize } from 'utils/normalizeById';
-import { SUCCESS } from 'consts/index';
+import { SUCCESS, ALL, COMPLETED } from 'consts';
 
 export const rootSelector = createSelector(
   (state) => state,
@@ -12,9 +12,26 @@ export const isFetchedSelector = createSelector(
   ({ status }) => status === SUCCESS
 );
 
-export const collectionSelector = createSelector(
+export const listSelector = createSelector(rootSelector, ({ collection }) =>
+  denormalize(collection).sort((a, b) => b.id - a.id)
+);
+
+export const filterSelector = createSelector(
   rootSelector,
-  ({ collection }) => denormalize(collection).sort((a, b) => b.id - a.id)
+  ({ filter }) => filter
+);
+
+export const filtredListSelector = createSelector(
+  [listSelector, filterSelector],
+  (list, filter) => {
+    if (filter === ALL) {
+      return list;
+    }
+
+    const cond = filter === COMPLETED;
+
+    return list.filter(({ completed }) => completed === cond);
+  }
 );
 
 export const newTodoSelector = createSelector(
@@ -23,6 +40,6 @@ export const newTodoSelector = createSelector(
 );
 
 export const activeCountSelector = createSelector(
-  collectionSelector,
+  listSelector,
   (collection) => collection.filter(({ completed }) => !completed).length
 );

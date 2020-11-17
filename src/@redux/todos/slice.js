@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import actionTypes from 'utils/actionTypes';
-import { PENDING, SUCCESS, FAILURE } from 'consts/index';
+import { PENDING, SUCCESS, FAILURE, ALL } from 'consts';
 import { normalize } from 'utils/normalizeById';
 
 const slice = createSlice({
@@ -9,6 +9,7 @@ const slice = createSlice({
     collection: {},
     status: '',
     newTodo: '',
+    filter: ALL,
   },
   reducers: {
     fetchTodos: (state) => {
@@ -35,6 +36,9 @@ const slice = createSlice({
     deleteTodoSuccess: (state) => state,
     checkTodo: (state, { payload: { id, value } }) => {
       state.collection[id].completed = value;
+    },
+    setFilter: (state, { payload }) => {
+      state.filter = payload;
     },
   },
 });
