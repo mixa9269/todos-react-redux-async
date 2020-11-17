@@ -5,6 +5,7 @@ import {
   isFetchedSelector,
   collectionSelector,
   newTodoSelector,
+  activeCountSelector,
 } from '@redux/todos/selectors';
 import Todos from 'components/Todos';
 
@@ -16,6 +17,7 @@ const UsersContainer = () => {
   const isFetched = useSelector(isFetchedSelector);
   const collection = useSelector(collectionSelector);
   const newTodo = useSelector(newTodoSelector);
+  const activeCount = useSelector(activeCountSelector);
 
   useComponentDidMount(() => {
     if (!isFetched) {
@@ -31,6 +33,7 @@ const UsersContainer = () => {
     <Todos
       collection={collection}
       newTodo={newTodo}
+      activeCount={activeCount}
       onAddTodo={pushTodo}
       onNewTodoChange={changeNewTodo}
       onRemove={deleteTodo}

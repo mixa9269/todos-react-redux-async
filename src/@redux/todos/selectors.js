@@ -21,3 +21,8 @@ export const newTodoSelector = createSelector(
   rootSelector,
   ({ newTodo }) => newTodo
 );
+
+export const activeCountSelector = createSelector(
+  collectionSelector,
+  (collection) => collection.filter(({ completed }) => !completed).length
+);
