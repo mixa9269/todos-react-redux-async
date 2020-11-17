@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -25,4 +26,4 @@ Item.propTypes = {
   onCheck: PropTypes.func.isRequired,
 };
 
-export default Item;
+export default React.memo(Item);
